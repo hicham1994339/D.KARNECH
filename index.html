@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عيادة الطبيب قرناش</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f4f8f8;
+    color:#17383d;
+}
+
+button,input,select,textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:white;
+    border-bottom:1px solid #e3eeee;
+    padding:12px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#087f73;
+    font-weight:bold;
+}
+
+.logo{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    background:linear-gradient(135deg,#087f73,#11aaa0);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.nav button{
+    border:0;
+    background:#e7f7f5;
+    color:#087f73;
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.page{
+    width:min(1100px,92%);
+    margin:30px auto;
+}
+
+.hero{
+    background:linear-gradient(135deg,#087f73,#11aaa0);
+    color:white;
+    border-radius:28px;
+    padding:55px 25px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(8,127,115,.2);
+}
+
+.hero-icon{
+    font-size:55px;
+}
+
+.hero h1{
+    margin:10px 0;
+    font-size:34px;
+}
+
+.hero p{
+    opacity:.9;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.btn{
+    border:0;
+    border-radius:12px;
+    padding:13px 20px;
+    font-weight:bold;
+}
+
+.btn-primary{
+    background:white;
+    color:#087f73;
+}
+
+.btn-green{
+    background:#087f73;
+    color:white;
+}
+
+.btn-red{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.btn-gray{
+    background:#e2e8f0;
+    color:#334155;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.card,.feature,.stat{
+    background:white;
+    border:1px solid #e3eeee;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(30,80,85,.05);
+}
+
+.feature{
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:30px;
+}
+
+.form-card{
+    width:min(550px,100%);
+    margin:30px auto;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-size:12px;
+    color:#64748b;
+}
+
+input,select,textarea{
+    width:100%;
+    border:1px solid #d9e5e7;
+    border-radius:11px;
+    padding:12px;
+    margin-bottom:15px;
+    outline:none;
+    background:white;
+}
+
+input:focus,select:focus,textarea:focus{
+    border-color:#087f73;
+    box-shadow:0 0 0 3px rgba(8,127,115,.08);
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.message{
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+    font-size:12px;
+}
+
+.success{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.error{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.success-box{
+    text-align:center;
+}
+
+.booking-number{
+    background:#effcf9;
+    border:1px dashed #087f73;
+    color:#087f73;
+    padding:18px;
+    border-radius:15px;
+    margin:20px 0;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:20px;
+}
+
+.sidebar{
+    background:white;
+    border:1px solid #e3eeee;
+    border-radius:18px;
+    padding:15px;
+    height:max-content;
+}
+
+.side-btn{
+    width:100%;
+    border:0;
+    background:transparent;
+    text-align:right;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:5px;
+    color:#475569;
+}
+
+.side-btn:hover,
+.side-btn.active{
+    background:#e7f7f5;
+    color:#087f73;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.stat-number{
+    color:#087f73;
+    font-size:28px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.appointment{
+    background:white;
+    border:1px solid #e3eeee;
+    border-radius:15px;
+    padding:16px;
+    margin-top:12px;
+}
+
+.appointment-head{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.badge{
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:10px;
+}
+
+.badge-new{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.badge-confirmed{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.badge-cancelled{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.appointment-info{
+    color:#64748b;
+    font-size:12px;
+    line-height:2;
+    margin-top:8px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+    font-size:11px;
+}
+
+hr{
+    border:0;
+    border-top:1px solid #edf2f3;
+    margin:20px 0;
+}
+
+@media(max-width:750px){
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="nav">
+
+    <div class="brand">
+
+        <div class="logo">
+            ⚕
+        </div>
+
+        عيادة الطبيب قرناش
+
+    </div>
+
+    <button onclick="showPage('login')">
+        👨‍⚕️ دخول الطبيب
+    </button>
+
+</nav>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section id="home" class="page">
+
+    <div class="hero">
+
+        <div class="hero-icon">
+            ⚕
+        </div>
+
+        <h1>
+            عيادة الطبيب قرناش
+        </h1>
+
+        <p>
+            طبيب عام — رعاية صحية موثوقة
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="showPage('booking')">
+
+                📅 حجز موعد
+
+            </button>
+
+            <button
+                class="btn btn-primary"
+                onclick="showPage('login')">
+
+                👨‍⚕️ لوحة الطبيب
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                📅
+            </div>
+
+            <h3>
+                حجز إلكتروني
+            </h3>
+
+            <p>
+                حجز الموعد بسهولة من الهاتف.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ⏰
+            </div>
+
+            <h3>
+                تنظيم المواعيد
+            </h3>
+
+            <p>
+                متابعة مواعيد المرضى.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                📱
+            </div>
+
+            <h3>
+                QR Code
+            </h3>
+
+            <p>
+                حجز مباشر من باب العيادة.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🔒
+            </div>
+
+            <h3>
+                دخول آمن
+            </h3>
+
+            <p>
+                لوحة خاصة بالطبيب.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BOOKING
+===================================================== -->
+
+<section id="booking" class="page hidden">
+
+    <div class="card form-card">
+
+        <div id="bookingForm">
+
+            <h2>
+                📅 حجز موعد
+            </h2>
+
+            <p style="font-size:12px;color:#64748b">
+                عيادة الطبيب قرناش — طبيب عام
+            </p>
+
+            <div id="bookingMessage"></div>
+
+            <form id="appointmentForm">
+
+                <label>
+                    الاسم واللقب *
+                </label>
+
+                <input
+                    id="patientName"
+                    required
+                    maxlength="100"
+                    placeholder="محمد بن علي">
+
+
+                <label>
+                    رقم الهاتف *
+                </label>
+
+                <input
+                    id="patientPhone"
+                    required
+                    type="tel"
+                    maxlength="20"
+                    placeholder="05xxxxxxxx">
+
+
+                <label>
+                    تاريخ الموعد *
+                </label>
+
+                <input
+                    id="appointmentDate"
+                    required
+                    type="date">
+
+
+                <label>
+                    وقت الموعد *
+                </label>
+
+                <select
+                    id="appointmentTime"
+                    required>
+
+                    <option value="">
+                        اختر الوقت
+                    </option>
+
+                    <option>08:30</option>
+                    <option>09:00</option>
+                    <option>09:30</option>
+                    <option>10:00</option>
+                    <option>10:30</option>
+                    <option>11:00</option>
+                    <option>11:30</option>
+                    <option>14:00</option>
+                    <option>14:30</option>
+                    <option>15:00</option>
+                    <option>15:30</option>
+                    <option>16:00</option>
+                    <option>16:30</option>
+                    <option>17:00</option>
+
+                </select>
+
+
+                <label>
+                    نوع الزيارة
+                </label>
+
+                <select id="visitType">
+
+                    <option>
+                        استشارة عامة
+                    </option>
+
+                    <option>
+                        متابعة
+                    </option>
+
+                    <option>
+                        فحص طبي
+                    </option>
+
+                    <option>
+                        شهادة طبية
+                    </option>
+
+                </select>
+
+
+                <label>
+                    ملاحظات
+                </label>
+
+                <textarea
+                    id="notes"
+                    maxlength="500"
+                    placeholder="ملاحظات اختيارية">
+                </textarea>
+
+
+                <button
+                    class="btn btn-green"
+                    style="width:100%"
+                    type="submit">
+
+                    تأكيد الحجز
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div
+            id="bookingSuccess"
+            class="success-box hidden">
+
+            <div style="font-size:55px">
+                ✅
+            </div>
+
+            <h2>
+                تم تسجيل الحجز
+            </h2>
+
+            <p>
+                تم إرسال طلب الموعد بنجاح.
+            </p>
+
+            <div
+                id="bookingNumber"
+                class="booking-number">
+            </div>
+
+            <div
+                id="bookingDetails"
+                style="font-size:12px;line-height:2">
+            </div>
+
+            <br>
+
+            <button
+                class="btn btn-green"
+                onclick="showPage('home')">
+
+                العودة للرئيسية
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<section id="login" class="page hidden">
+
+    <div class="card form-card">
+
+        <h2>
+            🔐 دخول الطبيب
+        </h2>
+
+        <p style="font-size:12px;color:#64748b">
+
+            هذه المنطقة مخصصة للطبيب فقط.
+
+        </p>
+
+        <div id="loginMessage"></div>
+
+        <form id="loginForm">
+
+            <label>
+                البريد الإلكتروني
+            </label>
+
+            <input
+                id="email"
+                type="email"
+                required
+                autocomplete="username"
+                placeholder="doctor@example.com">
+
+
+            <label>
+                كلمة المرور
+            </label>
+
+            <input
+                id="password"
+                type="password"
+                required
+                autocomplete="current-password"
+                placeholder="كلمة المرور">
+
+
+            <button
+                class="btn btn-green"
+                style="width:100%"
+                type="submit">
+
+                تسجيل الدخول
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section id="dashboard" class="page hidden">
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h3 style="color:#087f73">
+                ⚕ قرناش
+            </h3>
+
+            <button
+                class="side-btn active"
+                onclick="dashboardSection('appointments')">
+
+                📅 المواعيد
+
+            </button>
+
+
+            <button
+                class="side-btn"
+                onclick="dashboardSection('qr')">
+
+                📱 رابط الحجز
+
+            </button>
+
+
+            <button
+                class="side-btn"
+                onclick="dashboardSection('settings')">
+
+                ⚙️ الإعدادات
+
+            </button>
+
+
+            <button
+                class="side-btn"
+                onclick="logout()">
+
+                🚪 تسجيل الخروج
+
+            </button>
+
+        </aside>
+
+
+        <main>
+
+
+            <!-- APPOINTMENTS -->
+
+            <div id="appointmentsSection">
+
+                <h2>
+                    لوحة المواعيد
+                </h2>
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div>
+                            إجمالي المواعيد
+                        </div>
+
+                        <div
+                            id="totalAppointments"
+                            class="stat-number">
+
+                            0
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div>
+                            مواعيد جديدة
+                        </div>
+
+                        <div
+                            id="newAppointments"
+                            class="stat-number">
+
+                            0
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div>
+                            المواعيد المؤكدة
+                        </div>
+
+                        <div
+                            id="confirmedAppointments"
+                            class="stat-number">
+
+                            0
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div id="appointmentsList"></div>
+
+            </div>
+
+
+            <!-- QR -->
+
+            <div
+                id="qrSection"
+                class="hidden">
+
+                <div class="card">
+
+                    <h2>
+                        📱 رابط حجز المرضى
+                    </h2>
+
+                    <p>
+                        استخدم هذا الرابط لإنشاء QR Code.
+                    </p>
+
+                    <div
+                        id="bookingURL"
+                        style="
+                        background:#f8fafc;
+                        padding:15px;
+                        border-radius:10px;
+                        word-break:break-all;
+                        font-size:12px;">
+                    </div>
+
+                    <br>
+
+                    <button
+                        class="btn btn-green"
+                        onclick="copyBookingURL()">
+
+                        نسخ الرابط
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SETTINGS -->
+
+            <div
+                id="settingsSection"
+                class="hidden">
+
+                <div class="card">
+
+                    <h2>
+                        ⚙️ إعدادات العيادة
+                    </h2>
+
+                    <p>
+                        عيادة الطبيب قرناش
+                    </p>
+
+                    <p>
+                        طبيب عام
+                    </p>
+
+                    <hr>
+
+                    <p
+                        style="
+                        font-size:12px;
+                        color:#64748b">
+
+                        يمكنك لاحقًا إضافة أوقات العمل
+                        والعطل وبيانات العيادة.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © عيادة الطبيب قرناش
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT + FIREBASE
+===================================================== -->
+
+<script type="module">
+
+/*
+===========================================================
+ 1 — ضع بيانات Firebase هنا
+===========================================================
+
+اذهب إلى:
+
+Firebase
+→ Project settings
+→ Your apps
+→ Web app
+→ Config
+
+ثم استبدل القيم التالية.
+
+===========================================================
+*/
+
+const firebaseConfig = {
+
+    apiKey: "ضع_API_KEY_هنا",
+
+    authDomain:
+        "karna-69eeb.firebaseapp.com",
+
+    projectId:
+        "karna-69eeb",
+
+    storageBucket:
+        "ضع_STORAGE_BUCKET_هنا",
+
+    messagingSenderId:
+        "ضع_MESSAGING_SENDER_ID_هنا",
+
+    appId:
+        "ضع_APP_ID_هنا"
+
+};
+
+
+/*
+===========================================================
+2 — Firebase
+===========================================================
+*/
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    query,
+    where,
+    getDocs,
+    onSnapshot,
+    orderBy,
+    serverTimestamp,
+    updateDoc,
+    doc
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const db =
+    getFirestore(app);
+
+
+const auth =
+    getAuth(app);
+
+
+/*
+===========================================================
+3 — التنقل بين الصفحات
+===========================================================
+*/
+
+window.showPage = function(page){
+
+    document
+    .querySelectorAll(".page")
+    .forEach(element => {
+
+        element.classList.add("hidden");
+
+    });
+
+
+    const target =
+        document.getElementById(page);
+
+
+    if(target){
+
+        target.classList.remove("hidden");
+
+    }
+
+
+    window.scrollTo(0,0);
+
+};
+
+
+/*
+===========================================================
+4 — تاريخ اليوم
+===========================================================
+*/
+
+const dateInput =
+    document.getElementById(
+        "appointmentDate"
+    );
+
+
+const now =
+    new Date();
+
+
+const year =
+    now.getFullYear();
+
+
+const month =
+    String(
+        now.getMonth()+1
+    ).padStart(2,"0");
+
+
+const day =
+    String(
+        now.getDate()
+    ).padStart(2,"0");
+
+
+dateInput.min =
+    `${year}-${month}-${day}`;
+
+
+/*
+===========================================================
+5 — حجز الموعد
+===========================================================
+*/
+
+document
+.getElementById("appointmentForm")
+.addEventListener(
+"submit",
+async function(event){
+
+    event.preventDefault();
+
+
+    const message =
+        document.getElementById(
+            "bookingMessage"
+        );
+
+
+    message.innerHTML = "";
+
+
+    const name =
+        document
+        .getElementById("patientName")
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById("patientPhone")
+        .value
+        .trim();
+
+
+    const date =
+        document
+        .getElementById("appointmentDate")
+        .value;
+
+
+    const time =
+        document
+        .getElementById("appointmentTime")
+        .value;
+
+
+    const type =
+        document
+        .getElementById("visitType")
+        .value;
+
+
+    const notes =
+        document
+        .getElementById("notes")
+        .value
+        .trim();
+
+
+    if(
+        !name ||
+        !phone ||
+        !date ||
+        !time
+    ){
+
+        message.innerHTML = `
+            <div class="message error">
+                يرجى إكمال الحقول المطلوبة.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    try{
+
+        /*
+        البحث عن موعد موجود
+        */
+
+        const q =
+            query(
+                collection(
+                    db,
+                    "appointments"
+                ),
+
+                where(
+                    "date",
+                    "==",
+                    date
+                ),
+
+                where(
+                    "time",
+                    "==",
+                    time
+                ),
+
+                where(
+                    "status",
+                    "in",
+                    [
+                        "new",
+                        "confirmed"
+                    ]
+                )
+            );
+
+
+        const result =
+            await getDocs(q);
+
+
+        if(!result.empty){
+
+            message.innerHTML = `
+                <div class="message error">
+                    هذا الموعد محجوز مسبقًا.
+                    اختر وقتًا آخر.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        /*
+        إنشاء رقم الحجز
+        */
+
+        const bookingNumber =
+            "KARNA-" +
+            Math.floor(
+                100000 +
+                Math.random()*900000
+            );
+
+
+        /*
+        حفظ الموعد
+        */
+
+        await addDoc(
+            collection(
+                db,
+                "appointments"
+            ),
+            {
+
+                bookingNumber,
+
+                name,
+
+                phone,
+
+                date,
+
+                time,
+
+                type,
+
+                notes,
+
+                status:"new",
+
+                source:"website",
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        /*
+        عرض النتيجة
+        */
+
+        document
+        .getElementById(
+            "bookingForm"
+        )
+        .classList.add("hidden");
+
+
+        document
+        .getElementById(
+            "bookingSuccess"
+        )
+        .classList.remove("hidden");
+
+
+        document
+        .getElementById(
+            "bookingNumber"
+        )
+        .textContent =
+            bookingNumber;
+
+
+        document
+        .getElementById(
+            "bookingDetails"
+        )
+        .innerHTML = `
+
+            <b>الاسم:</b>
+            ${escapeHTML(name)}
+
+            <br>
+
+            <b>التاريخ:</b>
+            ${escapeHTML(date)}
+
+            <br>
+
+            <b>الساعة:</b>
+            ${escapeHTML(time)}
+
+            <br>
+
+            <b>نوع الزيارة:</b>
+            ${escapeHTML(type)}
+
+        `;
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        message.innerHTML = `
+            <div class="message error">
+                حدث خطأ أثناء الحجز.
+                تأكد من إعداد Firebase.
+            </div>
+        `;
+
+    }
+
+});
+
+
+/*
+===========================================================
+6 — تسجيل دخول الطبيب
+===========================================================
+*/
+
+document
+.getElementById("loginForm")
+.addEventListener(
+"submit",
+async function(event){
+
+    event.preventDefault();
+
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("password")
+        .value;
+
+
+    const message =
+        document
+        .getElementById(
+            "loginMessage"
+        );
+
+
+    message.innerHTML = "";
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+
+        message.innerHTML = `
+            <div class="message success">
+                تم تسجيل الدخول بنجاح.
+            </div>
+        `;
+
+
+        showPage("dashboard");
+
+
+        loadAppointments();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        message.innerHTML = `
+            <div class="message error">
+                بيانات الدخول غير صحيحة.
+            </div>
+        `;
+
+    }
+
+});
+
+
+/*
+===========================================================
+7 — مراقبة حالة الطبيب
+===========================================================
+*/
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        if(user){
+
+            showPage("dashboard");
+
+            loadAppointments();
+
+        }else{
+
+            /*
+            لا يوجد طبيب مسجل الدخول.
+            */
+
+            const dashboard =
+                document
+                .getElementById(
+                    "dashboard"
+                );
+
+
+            dashboard
+            .classList
+            .add("hidden");
+
+        }
+
+    }
+);
+
+
+/*
+===========================================================
+8 — تحميل المواعيد
+===========================================================
+*/
+
+let appointmentsUnsubscribe = null;
+
+
+function loadAppointments(){
+
+    if(appointmentsUnsubscribe){
+
+        appointmentsUnsubscribe();
+
+    }
+
+
+    const q =
+        query(
+            collection(
+                db,
+                "appointments"
+            ),
+
+            orderBy(
+                "createdAt",
+                "desc"
+            )
+        );
+
+
+    appointmentsUnsubscribe =
+        onSnapshot(
+            q,
+
+            snapshot => {
+
+                const appointments = [];
+
+
+                snapshot.forEach(
+                    item => {
+
+                        appointments.push({
+
+                            id:item.id,
+
+                            ...item.data()
+
+                        });
+
+                    }
+                );
+
+
+                renderAppointments(
+                    appointments
+                );
+
+            },
+
+            error => {
+
+                console.error(error);
+
+            }
+        );
+
+}
+
+
+/*
+===========================================================
+9 — عرض المواعيد
+===========================================================
+*/
+
+function renderAppointments(
+    appointments
+){
+
+    const container =
+        document
+        .getElementById(
+            "appointmentsList"
+        );
+
+
+    container.innerHTML = "";
+
+
+    document
+    .getElementById(
+        "totalAppointments"
+    )
+    .textContent =
+        appointments.length;
+
+
+    document
+    .getElementById(
+        "newAppointments"
+    )
+    .textContent =
+        appointments
+        .filter(
+            item =>
+                item.status === "new"
+        )
+        .length;
+
+
+    document
+    .getElementById(
+        "confirmedAppointments"
+    )
+    .textContent =
+        appointments
+        .filter(
+            item =>
+                item.status === "confirmed"
+        )
+        .length;
+
+
+    if(!appointments.length){
+
+        container.innerHTML = `
+            <div
+                class="card"
+                style="
+                margin-top:20px;
+                text-align:center">
+
+                لا توجد مواعيد حاليًا.
+
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    appointments.forEach(
+        appointment => {
+
+            let badge =
+                "badge-new";
+
+            let status =
+                "جديد";
+
+
+            if(
+                appointment.status ===
+                "confirmed"
+            ){
+
+                badge =
+                    "badge-confirmed";
+
+                status =
+                    "مؤكد";
+
+            }
+
+
+            if(
+                appointment.status ===
+                "cancelled"
+            ){
+
+                badge =
+                    "badge-cancelled";
+
+                status =
+                    "ملغى";
+
+            }
+
+
+            const actions =
+                appointment.status === "new"
+
+                ?
+
+                `
+                <div style="margin-top:12px">
+
+                    <button
+                        class="btn btn-green"
+                        onclick="
+                        confirmAppointment(
+                        '${appointment.id}'
+                        )">
+
+                        تأكيد
+
+                    </button>
+
+
+                    <button
+                        class="btn btn-red"
+                        onclick="
+                        cancelAppointment(
+                        '${appointment.id}'
+                        )">
+
+                        إلغاء
+
+                    </button>
+
+                </div>
+                `
+
+                :
+
+                "";
+
+
+            container.innerHTML += `
+
+                <div class="appointment">
+
+                    <div
+                        class="appointment-head">
+
+                        <strong>
+                            ${escapeHTML(
+                                appointment.name
+                            )}
+                        </strong>
+
+                        <span
+                            class="badge ${badge}">
+
+                            ${status}
+
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="appointment-info">
+
+                        📞
+                        ${escapeHTML(
+                            appointment.phone
+                        )}
+
+                        <br>
+
+                        📅
+                        ${escapeHTML(
+                            appointment.date
+                        )}
+
+                        <br>
+
+                        🕐
+                        ${escapeHTML(
+                            appointment.time
+                        )}
+
+                        <br>
+
+                        🩺
+                        ${escapeHTML(
+                            appointment.type
+                        )}
+
+                        <br>
+
+                        🔖
+                        ${escapeHTML(
+                            appointment.bookingNumber
+                        )}
+
+                    </div>
+
+
+                    ${actions}
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/*
+===========================================================
+10 — تأكيد الموعد
+===========================================================
+*/
+
+window.confirmAppointment =
+async function(id){
+
+    if(!auth.currentUser){
+
+        alert(
+            "يجب تسجيل الدخول أولًا."
+        );
+
+        showPage("login");
+
+        return;
+
+    }
+
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "appointments",
+                id
+            ),
+            {
+                status:"confirmed"
+            }
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "تعذر تأكيد الموعد."
+        );
+
+    }
+
+};
+
+
+/*
+===========================================================
+11 — إلغاء الموعد
+===========================================================
+*/
+
+window.cancelAppointment =
+async function(id){
+
+    if(!auth.currentUser){
+
+        alert(
+            "يجب تسجيل الدخول أولًا."
+        );
+
+        showPage("login");
+
+        return;
+
+    }
+
+
+    const ok =
+        confirm(
+            "هل تريد إلغاء هذا الموعد؟"
+        );
+
+
+    if(!ok)
+        return;
+
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "appointments",
+                id
+            ),
+            {
+                status:"cancelled"
+            }
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "تعذر إلغاء الموعد."
+        );
+
+    }
+
+};
+
+
+/*
+===========================================================
+12 — تسجيل الخروج
+===========================================================
+*/
+
+window.logout =
+async function(){
+
+    try{
+
+        await signOut(auth);
+
+        showPage("home");
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+};
+
+
+/*
+===========================================================
+13 — أقسام لوحة الطبيب
+===========================================================
+*/
+
+window.dashboardSection =
+function(section){
+
+    document
+    .getElementById(
+        "appointmentsSection"
+    )
+    .classList.add("hidden");
+
+
+    document
+    .getElementById(
+        "qrSection"
+    )
+    .classList.add("hidden");
+
+
+    document
+    .getElementById(
+        "settingsSection"
+    )
+    .classList.add("hidden");
+
+
+    if(
+        section ===
+        "appointments"
+    ){
+
+        document
+        .getElementById(
+            "appointmentsSection"
+        )
+        .classList.remove("hidden");
+
+    }
+
+
+    if(
+        section === "qr"
+    ){
+
+        document
+        .getElementById(
+            "qrSection"
+        )
+        .classList.remove("hidden");
+
+    }
+
+
+    if(
+        section === "settings"
+    ){
+
+        document
+        .getElementById(
+            "settingsSection"
+        )
+        .classList.remove("hidden");
+
+    }
+
+};
+
+
+/*
+===========================================================
+14 — رابط الحجز
+===========================================================
+*/
+
+const bookingURL =
+    window.location.origin +
+    window.location.pathname +
+    "#booking";
+
+
+document
+.getElementById(
+    "bookingURL"
+)
+.textContent =
+    bookingURL;
+
+
+window.copyBookingURL =
+async function(){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            bookingURL
+        );
+
+        alert(
+            "تم نسخ رابط الحجز."
+        );
+
+    }catch(error){
+
+        alert(
+            bookingURL
+        );
+
+    }
+
+};
+
+
+/*
+===========================================================
+15 — فتح الحجز بواسطة الرابط
+===========================================================
+*/
+
+if(
+    window.location.hash ===
+    "#booking"
+){
+
+    showPage("booking");
+
+}
+
+
+/*
+===========================================================
+16 — حماية إضافية للوحة
+===========================================================
+*/
+
+document
+.getElementById("dashboard")
+.addEventListener(
+"click",
+function(){
+
+    if(!auth.currentUser){
+
+        showPage("login");
+
+    }
+
+});
+
+
+/*
+===========================================================
+17 — حماية عرض النصوص
+===========================================================
+*/
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
